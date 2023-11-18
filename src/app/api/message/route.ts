@@ -43,16 +43,15 @@ export const POST = async (req: NextRequest) => {
 
   // 1: vectorize message
 
-  const embeddings = new OpenAIEmbeddings({
+   const embeddings = new OpenAIEmbeddings({
     openAIApiKey: process.env.OPENAI_API_KEY,
-  })
+  });
 
-  const pineconeIndex = pinecone.Index('dera')
+  const pineconeIndex = pinecone.Index("dera").namespace(userId);
 
   const vectorStore = await PineconeStore.fromExistingIndex(embeddings, {
     pineconeIndex,
-    // namespace: file.id,
-  })
+  });
 
   const results = await vectorStore.similaritySearch(message, 4)
 
