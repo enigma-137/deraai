@@ -8,8 +8,14 @@ import Skeleton from 'react-loading-skeleton'
 import Link from 'next/link'
 import format from 'date-fns/format'
 import { Button } from './ui/button'
+import { getUserSubscriptionPlan } from '@/lib/stripe'
 
-const Dashboard = () => {
+interface PageProps {
+  subscriptionPlan: Awaited<ReturnType<typeof getUserSubscriptionPlan>>
+}
+
+const Dashboard = ({subscriptionPlan}: PageProps) => {
+
   const [currentlyDeletingFile, setCurrentlyDeletingFile] = useState<string | null>(null)
   const utils = trpc.useUtils()
 
