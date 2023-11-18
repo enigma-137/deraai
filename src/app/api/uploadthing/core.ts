@@ -9,8 +9,8 @@ import { pinecone } from '@/libs/pinecone'
 import { getUserSubscriptionPlan } from '@/libs/stripe'
 import { PLANS } from '@/config/stripe'
 
-import { SupabaseVectorStore } from 'langchain/vectorstores/supabase'
-import { createClient } from '@supabase/supabase-js'
+// import { SupabaseVectorStore } from 'langchain/vectorstores/supabase'
+// import { createClient } from '@supabase/supabase-js'
 
 
 
